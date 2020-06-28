@@ -1,0 +1,93 @@
+html {
+    background: rgba(55, 154, 152, 1);
+}
+  
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+  /* если валидно border-color: #28a745 */
+  /* если не валидно border-color: #dc3545 */
+
+.container {
+    position: fixed;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 270px;
+}
+
+.container__wrapper {
+    position: relative;
+}
+
+.content {
+    position: absolute;
+    top: 10px;
+    background: white;
+    width: 270px;
+    border-radius: 12px;
+    z-index: 100;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.4);
+}
+
+.navigation {
+    width: 100%;
+    position: absolute;
+    top: -20px;
+    background: transparent;
+    display: flex;
+    z-index: 50;
+}
+
+.navigation__button {
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    width: 50%;
+    border-radius: 12px 12px 0 0;
+    padding: 10px 0 20px;
+    background: #343436;
+    color: white;
+}
+
+.content__container {
+    display: none;
+}
+
+.active__button {
+    background: white;
+    color: #343436;
+}
+
+.active {
+    display: block;
+    padding: 10px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.form__field {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 15px;
+}
+
+.form__input {
+    padding: 5px;
+    border: 1px solid #343436;
+    border-radius: 3px;
+    outline: none;
+}
+
+.form__error {
+    margin: 0;
+    padding: 0 10px 0 0;
+    color: #fa0019;
+    font-size: 14px;
+}
