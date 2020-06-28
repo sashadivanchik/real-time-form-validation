@@ -1,33 +1,21 @@
 export const validateRegister = ({ formSelector }) => {
 	const buttonRegister = formSelector.querySelector('.js-button-register');
 
-	buttonRegister.disabled = 'disabled'
-
 	const errorContainers = [...formSelector.querySelectorAll('.js-error-reg')];
 
 	const errors = {
 		name: '',
 		surname: '',
 		email: '',
-		password: '',
-		verifypassword: ''
+		password: ''
 	};
 
 	const form = {
 		name: '',
 		surname: '',
 		email: '',
-		password: '',
-		verifypassword: ''
+		password: ''
 	};
-
-	const valid = {
-		name: false,
-		surname: false,
-		email: false,
-		password: false,
-		verifypassword: false
-	}
 
 	const initalColor = '#343436';
 	const errorColor = '#fa0019';
@@ -118,7 +106,6 @@ export const validateRegister = ({ formSelector }) => {
 
 	buttonRegister.addEventListener('click', (e) => {
 		e.preventDefault()
-		const { verifypassword, ...withoutVerifyPassword } = form;
-		console.log(JSON.stringify(withoutVerifyPassword, null, 2))
+		console.log(JSON.stringify(form, null, 2))
 	})
 };

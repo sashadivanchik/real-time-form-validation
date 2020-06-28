@@ -9,5 +9,8 @@ const formRegistrationOptions = {
 	formSelector: document.querySelector('.js-form-registration')
 };
 
-switching(tabsButton, formContent)
+if (tabsButton && formContent) {
+	switching(tabsButton, formContent)
+}
+
 validateRegister(formRegistrationOptions);
