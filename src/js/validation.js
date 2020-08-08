@@ -9,6 +9,7 @@ export const validateRegister = ({ formSelector }) => {
 		email: '',
 		password: ''
 	};
+	
 
 	const form = {
 		name: '',
@@ -16,6 +17,13 @@ export const validateRegister = ({ formSelector }) => {
 		email: '',
 		password: ''
 	};
+
+	const isValid = {
+		name: false,
+		surname: false,
+		email: false,
+		password: false
+	}
 
 	const initalColor = '#343436';
 	const errorColor = '#fa0019';
@@ -41,30 +49,37 @@ export const validateRegister = ({ formSelector }) => {
 	const validateText = (value, input) => {
 		if (value.length < 3) {
 			errors[input.name] = 'Не менее трех символов'
+			isValid[input.name] = false;
 			return true;
 		} else if (!/^[а-яА-ЯёЁa-zA-Z]+$/.test(value)) {
 			errors[input.name] = 'Некорректные символы'
+			isValid[input.name] = false;
 			return true;
 		}
 		errors[input.name] = ''
+		isValid[input.name] = true;
 		return false;
 	};
 
 	const validateEmail = (value, input) => {
 		if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)) {
 			errors[input.name] = 'Неверный формат'
+			isValid[input.name] = false;
 			return false;
 		}
 		errors[input.name] = ''
+		isValid[input.name] = true;
 		return true;
 	};
 
 	const validatePassword = (value, input) => {
 		if (value.length < 6) {
 			errors[input.name] = 'Не менее шести символов'
+			isValid[input.name] = false;
 			return true;
 		}
 		errors[input.name] = ''
+		isValid[input.name] = true;
 		return false;
 	};
 
@@ -102,10 +117,14 @@ export const validateRegister = ({ formSelector }) => {
 		form[target.name] = target.value
 		validate(target.type, target);
 		errorMessage(target.name, errorContainers)
+	
+		const valid = (isValid.name && isValid.surname && isValid.password && isValid.email);
+
+		valid ? buttonRegister.removeAttribute('disabled') : buttonRegister.setAttribute('disabled', true);
 	})
 
 	buttonRegister.addEventListener('click', (e) => {
 		e.preventDefault()
-		console.log(JSON.stringify(form, null, 2))
+		alert(JSON.stringify(form, null, 2))
 	})
 };
