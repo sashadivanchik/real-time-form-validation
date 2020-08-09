@@ -20,13 +20,15 @@
                     <form class="form js-form-login">
                         <div class="form__field">
                             <label for="login-email">Email</label>
-                            <input class='form__input' type="email" id="login-email">
+                            <input class='form__input' type="email" name='email' id="login-email">
+                            <p class='form__error js-error-login' data-name='email'></p>
                         </div>
                         <div class="form__field">
                             <label for="login-password">Пароль</label>
-                            <input class='form__input' type="password" id="login-password">
+                            <input class='form__input' type="password" name='password' id="login-password">
+                            <p class='form__error js-error-login' data-name='password'></p>
                         </div>
-                        <button type="submit">Вход</button>
+                        <button button class="js-button-login" disabled type="submit">Вход</button>
                     </form>
                 </div>
                 <!-- registration -->
